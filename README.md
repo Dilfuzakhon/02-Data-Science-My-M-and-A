@@ -7,7 +7,13 @@ Import your function from my_ds_babel to save the CSV's content into SQL.
 Firstly, my function read CSV file. Then every file was cleaned.
 My mission was to merge three cleaned dataset. At the end of project I convert CSV's content into SQL. 
 ## Installation
-I use pandas as pd and sqlite3
+Install Python: Ensure Python is installed on your system. 
+This code relies on the Pandas library for data manipulation.
+You can install it using pip, the Python package manager, by running the following command in your terminal or command prompt:
+pip install pandas
+Also, it requires the sqlite3 module, which is included in Python's standard library. However, if you haven't installed it separately, you don't need to do so.
 ## Usage
-import pandas as pd
-import sqlite3
+This code serves the purpose of loading, cleaning, merging and converting to sql multiple datasets containing customer information stored in CSV files. 
+The purpose of this code is to streamline the process of cleaning and combining multiple datasets with potentially different structures into a unified dataset. 
+This can be useful for various data analysis tasks, such as customer segmentation, trend analysis, or predictive modeling, where having a single consistent dataset is essential for accurate and efficient analysis.
+
