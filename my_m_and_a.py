@@ -1,15 +1,14 @@
 import pandas as pd
+from my_ds_babel import csv_to_sql
 
-path_1 = "only_wood_customer_us_1.csv"
-path_2 = "only_wood_customer_us_2.csv"
-path_3 = "only_wood_customer_us_3.csv"
+# path_1 = "only_wood_customer_us_1.csv"
+# path_2 = "only_wood_customer_us_2.csv"
+# path_3 = "only_wood_customer_us_3.csv"
 
 
 def load_dataset_1(path):
     return pd.read_csv(path)
 
-
-df_1 = load_dataset_1(path_1)
 
 
 def clean_gender_1(row):
@@ -31,14 +30,8 @@ def clean_dataset_1(df):
     return df
 
 
-data_1 = clean_dataset_1(df_1)
-
-
 def load_dataset_2(path):
     return pd.read_csv(path, delimiter=";", names=["Age", "City", "Gender", "FullName", "Email"])
-
-
-df_2 = load_dataset_2(path_2)
 
 
 def clean_gender_2(row):
@@ -71,14 +64,8 @@ def clean_dataset_2(df):
     return df
 
 
-data_2 = clean_dataset_2(df_2)
-
-
 def load_dataset_3(path):
     return pd.read_csv(path, delimiter="\t", names=['Gender', 'Name', 'Email', 'Age', 'City', 'Country'])
-
-
-df_3 = load_dataset_3(path_3)
 
 
 def clean_gender_3(row):
@@ -104,9 +91,18 @@ def clean_dataset_3(df):
     return df
 
 
-data_3 = clean_dataset_3(df_3)
+def my_m_and_a(path_1, path_2, path_3):
+    df_1 = load_dataset_1(path_1)
+    df_2 = load_dataset_2(path_2)
+    df_3 = load_dataset_3(path_3)
 
+    clean_data_1 = clean_dataset_1(df_1)
+    clean_data_2 = clean_dataset_2(df_2)
+    clean_data_3 = clean_dataset_3(df_3)
 
-def merge_data(data_1, data_2, data_3):
-    merged_df = pd.concat([data_1, data_2, data_3], ignore_index=True)
+    merged_df = pd.concat([clean_data_1, clean_data_2, clean_data_3], ignore_index=True)
     return merged_df
+
+# merged_csv = my_m_and_a(path_1, path_2, path_3)
+# print(merged_csv)
+# csv_to_sql(merged_csv, 'users.db', 'customers')
